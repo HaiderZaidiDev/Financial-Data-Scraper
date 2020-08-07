@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+
+{% block stock-name%}
+<h1> {{name}} </h1>
+<h2> {{exchange}} </h2>
+
+{% endblock %}
+
+{% block stockprice %}
+<h1> {{price}} </h1>
+<p> We're up, nice. </p>
+{% endblock %}
+
+{% block valuation %}
+<p> P/E  Ratio<span> {{PERatio}}</span></p> <!-- Fundamentals -->
+<p> Price to Sales Ratio (TTM) <span> {{PriceToSalesRatioTTM}} </span> </p> <!-- Fundamentals -->
+<p> Price to Book Ratio<span> {{PriceToBookRatio}} </span> </p> <!-- Fundamentals -->
+<p> Enterprise Value to EBITDA <span> {{EVToEBITDA}} </span> </p> <!-- Fundamentals -->
+{% endblock %}
+
+{% block profitability %}
+<p> Profit Margin <span> {{profitMargin}}  </span> </p> <!-- Income Statement -->
+<p> Operating Margin (TTM) <span> {{operatingMarginTTM}} </span> </p>
+<p> Return on Assets (TTM) <span> {{ReturnOnAssetsTTM}} </span> </p>
+<p> Return on Equity (TTM) <span> {{ReturnOnEquityTTM}} </span> </p>
+{% endblock %}
