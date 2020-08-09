@@ -1,29 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
 @font-face {
-    font-family: 'JetBrains Mono';
-    src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2'),
-        url('../fonts/JetBrainsMono-Regular.woff') format('woff');
+    font-family: 'jetbrains_monobold';
+    src: url('../pages/fonts/jetbrainsmono-bold-webfont.woff2') format('woff2'),
+         url('../pages/fonts/jetbrainsmono-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 @font-face {
-    font-family: 'JetBrains Mono';
-    src: url('../fonts/JetBrainsMono-Light.woff2') format('woff2'),
-        url('../fonts/JetBrainsMono-Light.woff') format('woff');
-    font-weight: 300;
+    font-family: 'jetbrains_monolight';
+    src: url('../pages/fonts/jetbrainsmono-light-webfont.woff2') format('woff2'),
+         url('../pages/fonts/jetbrainsmono-light-webfont.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
+
 @font-face {
-    font-family: 'JetBrains Mono';
-    src: url('../fonts/JetBrainsMono-Bold.woff2') format('woff2'),
-        url('../fonts/JetBrainsMono-Bold.woff') format('woff');
-    font-weight: bold;
+    font-family: 'jetbrains_monoregular';
+    src: url('../pages/fonts/jetbrainsmono-regular-webfont.woff2') format('woff2'),
+         url('../pages/fonts/jetbrainsmono-regular-webfont.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 .ticker-box label {
@@ -39,21 +37,21 @@
 
 .ratio-item {
   border-left: 1px solid #FFFFFF;
-  height: 186px;
+  height: auto;
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
 
 .ratio-item h2 {
-  font-family: 'JetBrains Mono';
-  font-weight: normal;
+  font-family: 'jetbrains_monobold';
+  font-weight: 300;
   font-style: normal;
   font-size: 1.5em;
 
 }
 
 .ratio-item p {
-  font-family: 'JetBrains Mono';
+  font-family: 'jetbrains_monoregular';
   font-style: normal;
   font-weight: 300;
   font-size: 0.875em;
@@ -74,14 +72,14 @@
 }
 
 .stock-price h1 {
-  font-family: 'JetBrains Mono';
+  font-family: 'jetbrains_monobold';
   font-style: normal;
   font-weight: normal;
   font-size: 3em;
 }
 
 .stock-price p {
-  font-family: 'JetBrains Mono';
+  font-family: 'jetbrains_monoregular';
   font-style: normal;
   font-weight: normal;
   font-size: 1.125em;
@@ -94,14 +92,14 @@
 }
 
 .stock-name h1 {
-  font-family: 'JetBrains Mono';
+  font-family: 'jetbrains_monoregular';
   font-style: normal;
   font-weight: bold;
 }
 
 .stock-name h2 {
   margin-top: -1vh;
-  font-family: 'JetBrains Mono';
+  font-family: 'jetbrains_monolight';
   font-style: normal;
   font-weight: 300;
   text-transform: uppercase;

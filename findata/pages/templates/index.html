@@ -64,39 +64,31 @@
 
               <div class="col-md-4 col-sm-12">
                 <div class="ratio-item">
-                  <div class="content efficiency">
+                  <div class="content capital-structure">
                     <h2> Capital Structure</h2>
-                    <p> Lorem ipsum dolor sit amet <span> 000,000.00 </span> </p>
-                    <p> Lorem ipsum dolor sit amet <span> 000,000.00 </span> </p>
-                    <p> Lorem ipsum dolor sit amet <span> 000,000.00 </span> </p>
-                    <p> Lorem ipsum dolor sit amet <span> 000,000.00 </span> </p>
+                    {% block capitalStructure %} {% endblock %}
                   </div>
                 </div>
               </div>
 
             <div class="col-md-4 col-sm-12">
               <div class="ratio-item">
-                <div class="content capital-structure">
-                  <h2> Valuation </h2>
-                  <p> Lorem ipsum dolor sit amet <span> 000,000.00 </span> </p>
-                  <p> Lorem ipsum dolor sit amet <span> 000,000.00 </span> </p>
-                  <p> Lorem ipsum dolor sit amet <span> 000,000.00 </span> </p>
-                  <p> Lorem ipsum dolor sit amet <span> 000,000.00 </span> </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-12">
-              <div class="ratio-item">
                 <div class="content liquidity">
                   <h2> Liquidity </h2>
-                  <p> Lorem ipsum dolor sit amet <span> 000,000.00 </span> </p>
-                  <p> Lorem ipsum dolor sit amet <span> 000,000.00 </span> </p>
-                  <p> Lorem ipsum dolor sit amet <span> 000,000.00 </span> </p>
-                  <p> Lorem ipsum dolor sit amet <span> 000,000.00 </span> </p>
+                  {% block liquidity %} {% endblock %}
                 </div>
               </div>
           </div>
+
+          <div class="col-md-4 col-sm-12">
+            <div class="ratio-item">
+              <div class="content efficiency">
+                <h2> Efficiency</h2>
+                {% block efficiency %} {% endblock %}
+              </div>
+            </div>
+          </div>
+
 
         </div>
       </div>
