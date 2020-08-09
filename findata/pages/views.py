@@ -91,21 +91,45 @@ def homeView(request):
         tickerClean = form.cleaned_data['symbol']
         ratios = ratioScraper(tickerClean)
         companyInfo = infoScraper(tickerClean)
+        categories = ['Valuation', 'Efficiency', 'Liquidity', 'Profitability', 'Capital Structure']
+
+        # Variables to be passed through context
+        name = companyInfo['name']
+        market = companyInfo['market']
+        currency = companyInfo['priceData']['currency']
+        price = companyInfo['priceData']['price']
+        priceStatus = companyInfo['priceData']['priceStatus']
+
+
+        for i in range(len(categories)):
+            if categories[i] not in ratios:
+                errorMsg = {}
+                errorMsg['Error:'] = " {} ratios for this stock aren't available (were not found on Market Watch).".format(categories[i])
+                ratios[categories[i]] = errorMsg
+
+        valuation = ratios['Valuation']
+        efficiency = ratios['Efficiency']
+        liquidity = ratios['Liquidity']
+        profitability = ratios['Profitability']
+        capitalStructure = ratios['Capital Structure']
+
 
 
         context = {
         'form'              : form,
-        'name'              : companyInfo['name'],
-        'market'            : companyInfo['market'],
-        'currency'          : companyInfo['priceData']['currency'],
-        'price'             : companyInfo['priceData']['price'],
-        'priceStatus'       : companyInfo['priceData']['priceStatus'],
-        'valuation'         : ratios['Valuation'],
-        'efficiency'        : ratios['Efficiency'] ,
-        'liquidity'         : ratios['Liquidity'],
-        'profitability'     : ratios['Profitability'] ,
-        'capitalStructure'  : ratios['Capital Structure'],
+        'name'              : name,
+        'market'            : market,
+        'currency'          : currency,
+        'price'             : price,
+        'priceStatus'       : priceStatus,
+        'valuation'         : valuation,
+        'efficiency'        : efficiency ,
+        'liquidity'         : liquidity,
+        'profitability'     : profitability ,
+        'capitalStructure'  : capitalStructure,
         }
+
+        print(context)
 
         return render(request, 'ratios.html', context)
 

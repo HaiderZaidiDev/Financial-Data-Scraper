@@ -1,5 +1,17 @@
 {% extends 'index.html' %}
-
+<script>
+$.ajax({
+       url: '/some-app/some-view/',
+       type: 'GET',
+       dataType: 'json',
+       success: function(result){
+               $('#image-id').attr('src', result.image);
+       },
+       error: function(xhr){
+              alert(xhr.responseText); //Remove this when all is fine.
+       }
+});
+</script>
 
 {% block stock-name%}
 <h1> {{name}} </h1>
