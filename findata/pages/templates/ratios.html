@@ -6,10 +6,15 @@
 <script type="text/javascript" src="{% static 'pages/main.js' %}"></script>
 {% endblock %}
 
+
 {% block stock-name%}
 <h1> {{name}} </h1>
 <h2> {{market}} </h2>
 
+{% endblock %}
+
+{% block time-series %}
+<div>{{graph|safe}}</div>
 {% endblock %}
 
 {% block stockprice %}

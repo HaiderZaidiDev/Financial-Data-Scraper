@@ -2,14 +2,38 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from .forms import TickerForm
+import plotly.graph_objects as go
+from plotly.offline import plot
 from alpha_vantage.timeseries import TimeSeries
-import plotly
 import pandas as pd
-
+from datetime import datetime
 import requests
 import os
 import requests as r
 from bs4 import BeautifulSoup
+import plotly.express as px
+
+
+def candleStick(ticker):
+    ts = TimeSeries(key='5R0NUWKOB76JU3EC', output_format='pandas')
+    data, meta_data = ts.get_intraday(symbol=ticker, interval='1min', outputsize='full')
+    #dates = list(data["Time Series (1min)"].keys())
+
+    data=[go.Candlestick(x=data.index,
+                    open=data['1. open'],
+                    high=data['2. high'],
+                    low=data['3. low'],
+                    close=data['4. close'])]
+    layout = go.Layout(
+        width= 724,
+        height = 241,
+        margin = {'t':25,'r':0,'l':0,'b':0}
+    )
+    fig = go.Figure(data=data, layout=layout)
+    fig.update_layout(xaxis_rangeslider_visible=False)
+    candleStick = plot(fig, output_type='div')
+    return candleStick
+
 
 def infoScraper(ticker):
     """ Scrapes company and price data from market watch"""
@@ -99,6 +123,7 @@ def homeView(request):
         currency = companyInfo['priceData']['currency']
         price = companyInfo['priceData']['price']
         priceStatus = companyInfo['priceData']['priceStatus']
+        graph = candleStick(tickerClean)
 
 
         for i in range(len(categories)):
@@ -115,6 +140,7 @@ def homeView(request):
 
 
 
+
         context = {
         'form'              : form,
         'name'              : name,
@@ -127,6 +153,7 @@ def homeView(request):
         'liquidity'         : liquidity,
         'profitability'     : profitability ,
         'capitalStructure'  : capitalStructure,
+        'graph'             : graph
         }
 
         print(context)
