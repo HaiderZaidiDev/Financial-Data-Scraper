@@ -6,9 +6,18 @@
 
     <!-- BootstrapCDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
-
     <link href="{% static 'pages/main.css' %}" rel="stylesheet">
+    {% block loadingscript %}
+    <script>
+      function showSpinner() {
+        var div = document.getElementbyClassName('loadingspinner');
+        div.style.display = 'block';
+      }
+    </script>
+    {% endblock %}
   </head>
+
+  <div class="loadingspinner"></div>
 
   <body>
     <div class="container-fluid">
@@ -17,7 +26,7 @@
         <p> Enter the ticker symbol for any stock, get useful ratios for financial analysis. </p>
       </div>
 
-      <form class="ticker-box" method='POST'> {% csrf_token %}
+      <form class="ticker-box" method='POST' onsubmit="showSpinner()"> {% csrf_token %}
         {{ form }}
         <!--<input type="text" id="ticker" name="ticker" placeholder="Ex. AMD">-->
       </form>
