@@ -16,72 +16,35 @@ import plotly.express as px
 
 def candleStick(ticker):
     ts = TimeSeries(key='5R0NUWKOB76JU3EC', output_format='pandas')
-    data, meta_data = ts.get_intraday(symbol=ticker, interval='1min', outputsize='full')
-    #dates = list(data["Time Series (1min)"].keys())
-
-    data=[go.Candlestick(x=data.index,
-                    open=data['1. open'],
-                    high=data['2. high'],
-                    low=data['3. low'],
-                    close=data['4. close'])]
+    data, meta_data = ts.get_daily(symbol=ticker, outputsize='compact')
     layout = go.Layout(
         width= 724,
         height = 241,
-        margin = {'t':25,'r':0,'l':0,'b':0}
+        margin = dict(t=25, r=5, l=5, b=5),
+        paper_bgcolor = "#090909",
+        plot_bgcolor = "#1B1B1B",
+        font_color = "white",
+        font_family = "Roboto"
     )
-    fig = go.Figure(data=data, layout=layout)
+    fig = go.Figure([go.Scatter(x=data.index, y=data['4. close'], line=dict(color="#00ff88"))], layout=layout)
     fig.update_layout(xaxis_rangeslider_visible=False)
     candleStick = plot(fig, output_type='div')
     return candleStick
 
 
-def infoScraper(ticker):
-    """ Scrapes company and price data from market watch"""
+
+def marketWatchScraper(ticker):
+    """ Scrapes financial data from Market Watch """
     URL = 'https://www.marketwatch.com/investing/stock/{}/profile'.format(ticker)
     page = r.get(URL)
     soup = BeautifulSoup(page.content, 'html.parser')
-    nameResults = soup.find_all(id="instrumentname")
-    priceResults = soup.find_all(class_="pricewrap")
-    priceStatusResults = soup.find_all(class_="lastpricedetails")
-
-    companyInfo = {}
-    priceData = {} # Price is a seperate dictionary so we can track its currency.
-
-    for items in nameResults:
-        name = items.string
-        market = items.next_sibling.next_sibling.string
-        marketClean = market.replace('\r', '').replace('\n', '').strip()
-        companyInfo['name'] = name
-        companyInfo['market'] = marketClean
-
-    for items in priceResults:
-        if items.p['class'][0] == 'currency':
-            currency = items.p.string
-            price = items.p.next_sibling.next_sibling.string
-            priceData['currency'] = currency
-            priceData['price'] = price
-
-    for items in priceStatusResults:
-        points = items.span.string
-        percentage = items.span.next_sibling.next_sibling.string
-        priceStatus = '{0} {1}'.format(points, percentage)
-        priceData['priceStatus'] = priceStatus
-
-    companyInfo['priceData'] = priceData
-    return companyInfo
-
-
-def ratioScraper(ticker):
-    """ Scrapes financial ratios from Market Watch"""
-    URL = 'https://www.marketwatch.com/investing/stock/{}/profile'.format(ticker)
-    page = r.get(URL)
-    soup = BeautifulSoup(page.content, 'html.parser')
-    results = soup.find_all(class_='section')
+    ratioResults = soup.find_all(class_='section')
     ratios = {}
     ratioPreSplit = {}
     category = None
 
-    for items in results:
+    # Ratio scraping
+    for items in ratioResults:
         try:
             if items.p['class'][0] == 'column':
                 # The current item is a section object, the oen above is whitespace,
@@ -106,15 +69,43 @@ def ratioScraper(ticker):
 
         except: # Usually if Paragraph is NoneType
             pass
-    return ratios
+
+    # Company info scraping
+    nameResults = soup.find_all(id="instrumentname")
+    priceResults = soup.find_all(class_="pricewrap")
+    priceStatusResults = soup.find_all(class_="lastpricedetails")
+    companyInfo = {}
+    priceData = {} # Price is a seperate dictionary so we can track its currency.
+
+    for items in nameResults:
+        name = items.string
+        market = items.next_sibling.next_sibling.string
+        marketClean = market.replace('\r', '').replace('\n', '').strip()
+        companyInfo['name'] = name
+        companyInfo['market'] = marketClean
+
+    for items in priceResults:
+        if items.p['class'][0] == 'currency':
+            currency = items.p.string
+            price = items.p.next_sibling.next_sibling.string
+            priceData['currency'] = currency
+            priceData['price'] = price
+
+    for items in priceStatusResults:
+        points = items.span.string
+        percentage = items.span.next_sibling.next_sibling.string
+        priceStatus = '{0} {1}'.format(points, percentage)
+        priceData['priceStatus'] = priceStatus
+    companyInfo['priceData'] = priceData
+
+    return ratios, companyInfo
 
 def homeView(request):
     form = TickerForm(request.POST or None)
     if form.is_valid():
         form.save()
         tickerClean = form.cleaned_data['symbol']
-        ratios = ratioScraper(tickerClean)
-        companyInfo = infoScraper(tickerClean)
+        ratios, companyInfo = marketWatchScraper(tickerClean)
         categories = ['Valuation', 'Efficiency', 'Liquidity', 'Profitability', 'Capital Structure']
 
         # Variables to be passed through context
@@ -138,9 +129,6 @@ def homeView(request):
         profitability = ratios['Profitability']
         capitalStructure = ratios['Capital Structure']
 
-
-
-
         context = {
         'form'              : form,
         'name'              : name,
@@ -155,8 +143,6 @@ def homeView(request):
         'capitalStructure'  : capitalStructure,
         'graph'             : graph
         }
-
-        print(context)
 
         return render(request, 'ratios.html', context)
 

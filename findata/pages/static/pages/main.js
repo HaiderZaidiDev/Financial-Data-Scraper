@@ -8,3 +8,8 @@ window.onload = function priceStatus() {
     status.style.color = 'green';
   }
 }
+
+function loadingPage() {
+  var div = document.getElementById("loading-wrapper")
+  div.style.display = "block";
+}
