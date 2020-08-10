@@ -3,7 +3,7 @@
 
 {% block loadingscript %}
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="{% static 'pages/alert.js' %}"></script>
+<script type="text/javascript" src="{% static 'pages/main.js' %}"></script>
 {% endblock %}
 
 {% block stock-name%}
@@ -14,7 +14,7 @@
 
 {% block stockprice %}
 <h1> {{price}} </h1>
-<p> {{priceStatus}} </p>
+<p id="priceStatus"> {{priceStatus}} </p>
 {% endblock %}
 
 
