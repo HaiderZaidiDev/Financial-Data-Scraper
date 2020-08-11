@@ -132,7 +132,7 @@ input[type="text"] {
 
 .ticker-box {
   margin-top: 7.5vh;
-  margin-left: 37.5vw;
+  margin-left: 0;
 }
 
 .header h1 {

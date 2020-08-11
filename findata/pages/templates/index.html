@@ -21,12 +21,16 @@
             </div>
         </div>
     </div>
-      <div class="header">
+    <div class="row">
+      <div class="col-12">
+        <div class="header">
         <h1> Financial Data </h1>
         <p> Enter the ticker symbol for any stock, get useful ratios for financial analysis. </p>
+        </div>
       </div>
+    </div>
 
-      <form class="ticker-box" method='POST' onsubmit="loadingPage()"> {% csrf_token %}
+      <form class="ticker-box d-flex justify-content-center" method='POST' onsubmit="loadingPage()"> {% csrf_token %}
         {{ form }}
         <!--<input type="text" id="ticker" name="ticker" placeholder="Ex. AMD">-->
       </form>
