@@ -14,6 +14,7 @@
 
   <body>
     <div class="container-fluid">
+      <!-- Loading Page -->
       <div id="loading-wrapper">
         <div id="loading-page" class="d-flex justify-content-center align-items-center">
             <div class="spinner-border" role="status">
@@ -21,8 +22,9 @@
             </div>
         </div>
     </div>
+    <!-- Header -->
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 d-lg-block d-md-block d-sm-none d-none">
         <div class="header">
         <h1> Financial Data </h1>
         <p> Enter the ticker symbol for any stock, get useful ratios for financial analysis. </p>
@@ -30,10 +32,26 @@
       </div>
     </div>
 
-      <form class="ticker-box d-flex justify-content-center" method='POST' onsubmit="loadingPage()"> {% csrf_token %}
-        {{ form }}
-        <!--<input type="text" id="ticker" name="ticker" placeholder="Ex. AMD">-->
-      </form>
+    <!-- Mobile Header -->
+    <div class="row">
+      <div class="col-12 d-lg-none d-md-none d-sm-block d-xs-block">
+        <div class="mobile-header">
+        <h1> Financial Data </h1>
+        <p> Enter the ticker symbol for any stock, get useful ratios for financial analysis. </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ticker Input Form -->
+    <form class="ticker-box d-flex justify-content-center" method='POST' onsubmit="loadingPage()"> {% csrf_token %}
+      <div class="form-row">
+        <div class="col-lg-10">
+          {{ form }}
+        </div>
+      </div>
+    </form>
+
+    <!-- Company name for stock ticker -->
       <div class="financials">
         <div class="row">
           <div class="col-12">
@@ -43,20 +61,24 @@
           </div>
         </div>
 
+        <!-- Pricing and time series graph -->
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-1 col-xs-1">
+          <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
             <div class="stock-price">
               {% block stockprice %} {% endblock %}
-              <div class="time-series-graph">
+            </div>
+          </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+              <div class="time-series-graph d-none d-sm-block">
                 {% block time-series %} {% endblock %}
               </div>
             </div>
-      </div>
-    </div>
+          </div>
 
-        <div class="ratios">
+          <!-- Ratios -->
+        <div class="ratios mt-5">
           <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="col-md-4 col-sm-12">
               <div class="ratio-item">
                   <div class="content valuation">
                     <h2> Valuation </h2>
@@ -114,8 +136,12 @@
         function loadingPage() {
           var div = document.getElementById("loading-wrapper")
           div.style.display = "block";
+
+          var body = document.getElementsByTagName("body")[0]
+          body.style.overflow = "hidden"
         }
         </script>
+        <!-- Bootstrap Dependencies -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>

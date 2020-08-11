@@ -12,4 +12,7 @@ window.onload = function priceStatus() {
 function loadingPage() {
   var div = document.getElementById("loading-wrapper")
   div.style.display = "block";
+
+  var body = document.getElementsByTagName("body")
+  body.style.overflow = "hidden"
 }

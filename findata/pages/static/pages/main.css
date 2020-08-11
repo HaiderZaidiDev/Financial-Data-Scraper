@@ -24,18 +24,6 @@
     font-style: normal;
 }
 
-#loading-wrapper {
-  display: none;
-}
-
-#loading-page {
-  height: 100vh;
-  width: 100vw;
-  color:white;
-  background-color: #090909;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
 .ticker-box label {
   display: none;
 }
@@ -73,8 +61,6 @@
 .time-series-graph {
   width: 724px;
   height: 241px;
-  margin-left: 15vw;
-  margin-top: -13vh;
 }
 
 .stock-price {
@@ -121,7 +107,7 @@ input[type="text"] {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   position: relative;
-  width: 538px;
+  width: 100%;
   background: transparent;
   border: 0;
   border-bottom: 1px solid #FFFFFF;
@@ -129,6 +115,7 @@ input[type="text"] {
   color: white;
   font-size: 4.5em;
 }
+
 
 .ticker-box {
   margin-top: 7.5vh;
@@ -142,6 +129,18 @@ input[type="text"] {
 .header p {
   font-size: 2.25em;
   margin-left: 5vw;
+}
+
+.mobile-header h1 {
+  font-size: 2.75em;
+}
+
+.mobile-header p {
+  font-size: 1.5em;
+}
+
+.mobile-header {
+  margin-top: 5vh;
 }
 
 .header {
@@ -171,6 +170,18 @@ body {
   background-color: #090909;
   margin: 0;
 	padding: 0;
-  overflow-x: hidden;
-  overflow-y: scroll;
+}
+
+#loading-wrapper {
+  display: none;
+  overflow: hidden;
+}
+
+#loading-page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  color:white;
+  background-color: #090909;
+  overflow: hidden;
 }
