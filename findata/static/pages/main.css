@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+@font-face {
+    font-family: 'jetbrains_monobold';
+    src: url('../pages/fonts/jetbrainsmono-bold-webfont.woff2') format('woff2'),
+         url('../pages/fonts/jetbrainsmono-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'jetbrains_monolight';
+    src: url('../pages/fonts/jetbrainsmono-light-webfont.woff2') format('woff2'),
+         url('../pages/fonts/jetbrainsmono-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'jetbrains_monoregular';
+    src: url('../pages/fonts/jetbrainsmono-regular-webfont.woff2') format('woff2'),
+         url('../pages/fonts/jetbrainsmono-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ticker-box label {
+  display: none;
+}
+.content {
+  padding-left: 0.5vw;
+}
+
+.content span {
+  padding-right: 10vw;
+}
+
+.ratio-item {
+  border-left: 1px solid #FFFFFF;
+  height: auto;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.ratio-item h2 {
+  font-family: 'jetbrains_monobold';
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.5em;
+
+}
+
+.ratio-item p {
+  font-family: 'jetbrains_monoregular';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.875em;
+  line-height: 17px;
+}
+
+.time-series-graph {
+  width: 724px;
+  height: 241px;
+}
+
+.stock-price {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  margin-left: 10vw;
+}
+
+.stock-price h1 {
+  font-family: 'jetbrains_monoregular';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3em;
+}
+
+.stock-price p {
+  font-family: 'jetbrains_monoregular';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.125em;
+  margin-top: -1vh;
+}
+
+.financials {
+  margin-top: 10vh;
+  margin-left: 15vw;
+}
+
+.stock-name h1 {
+  font-family: 'jetbrains_monoregular';
+  font-style: normal;
+  font-weight: bold;
+}
+
+.stock-name h2 {
+  margin-top: -1vh;
+  font-family: 'jetbrains_monolight';
+  font-style: normal;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+input[type="text"] {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  position: relative;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #FFFFFF;
+  outline: none;
+  color: white;
+  font-size: 4.5em;
+}
+
+
+.ticker-box {
+  margin-top: 7.5vh;
+  margin-left: 0;
+}
+
+.header h1 {
+  font-size: 4.5em;
+}
+
+.header p {
+  font-size: 2.25em;
+  margin-left: 5vw;
+}
+
+.mobile-header h1 {
+  font-size: 2.75em;
+}
+
+.mobile-header p {
+  font-size: 1.5em;
+}
+
+.mobile-header {
+  margin-top: 5vh;
+}
+
+.header {
+  margin-top: 10vh;
+  margin-left: 10vw;
+}
+
+h1 {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: white;
+}
+
+p {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+
+body {
+  background-color: #090909;
+  margin: 0;
+	padding: 0;
+}
+
+#loading-wrapper {
+  display: none;
+  overflow: hidden;
+}
+
+#loading-page {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  color:white;
+  background-color: #090909;
+  overflow: hidden;
+}

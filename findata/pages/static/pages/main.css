@@ -167,9 +167,7 @@ p {
 
 
 body {
-  background-color: #090909;
-  margin: 0;
-	padding: 0;
+  display: none;
 }
 
 #loading-wrapper {

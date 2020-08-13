@@ -15,7 +15,7 @@ import plotly.express as px
 
 
 def candleStick(ticker):
-    ts = TimeSeries(key='5R0NUWKOB76JU3EC', output_format='pandas')
+    ts = TimeSeries(key=os.environ['ALPHA_VANTAGE_API_KEY'], output_format='pandas')
     data, meta_data = ts.get_daily(symbol=ticker, outputsize='compact')
     layout = go.Layout(
         width= 724,

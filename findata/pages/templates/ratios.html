@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block loadingscript %}
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="{% static 'pages/main.js' %}"></script>
 {% endblock %}
 
@@ -18,7 +18,7 @@
 {% endblock %}
 
 {% block stockprice %}
-<h1> {{price}} </h1>
+<h1> {{currency}}{{price}} </h1>
 <p id="priceStatus"> {{priceStatus}} </p>
 {% endblock %}
 
