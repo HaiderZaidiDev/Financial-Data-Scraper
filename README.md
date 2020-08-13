@@ -1,6 +1,6 @@
 # Financial Data
 
-Financial Data is a Django app which provides financial data of a company (e.g ratios useful for investing, current share price) given a ticker symbol. The app scrapes financial ratio data from MarketWatch and plots a time series graph displaying the stocks daily performance over the lat few months. 
+Financial Data is a Django app which provides financial data of a company (e.g ratios useful for investing, current share price) given a ticker symbol. The app scrapes financial ratio data from MarketWatch and plots a time series graph displaying the stock's daily performance over the last few months. 
 
 The front-end of the app runs on HTML/CSS, Bootstrap, and JavaScript. The back-end is in Python and Django. 
 
