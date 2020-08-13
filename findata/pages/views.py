@@ -131,6 +131,7 @@ def homeView(request):
 
         context = {
         'form'              : form,
+        'ticker'            : tickerClean,
         'name'              : name,
         'market'            : market,
         'currency'          : currency,

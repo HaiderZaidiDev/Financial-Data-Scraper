@@ -24,7 +24,7 @@ SECRET_KEY = os.environ['FINDATA_SECRET_KEY']
 SECURE_SSL_REDIRECT = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
