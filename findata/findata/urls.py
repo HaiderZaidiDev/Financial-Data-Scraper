@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from pages.views import homeView, error500View
+from pages.views import homeView, error500View, error404View
 from django.conf import settings
 from django.conf.urls.static import static
-handler505 = error500View
+handler500 = error500View
+handler404 = error404View
 
 urlpatterns = [
     path('admin/', admin.site.urls),

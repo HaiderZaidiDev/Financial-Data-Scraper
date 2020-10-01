@@ -156,7 +156,10 @@ def homeView(request):
 
     return render(request, 'index.html', context)
 
-def error500View():
-    return render(request, 'error500.html', context)
+def error500View(request):
+    return render(request, 'error500.html', {})
+
+def error404View(request):
+    return render(request, 'error404.html', {})
 
 # Create your views here.
