@@ -100,6 +100,8 @@ def marketWatchScraper(ticker):
 
     return ratios, companyInfo
 
+
+
 def homeView(request):
     form = TickerForm(request.POST or None)
     if form.is_valid():
@@ -154,6 +156,7 @@ def homeView(request):
 
     return render(request, 'index.html', context)
 
-
+def error500View():
+    return render(request, 'error500.html', context)
 
 # Create your views here.
