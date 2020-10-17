@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
 @font-face {
     font-family: 'jetbrains_monobold';
     src: url('../pages/fonts/jetbrainsmono-bold-webfont.woff2') format('woff2'),
@@ -22,6 +21,35 @@
          url('../pages/fonts/jetbrainsmono-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+/* Global */
+h1, p, input[type="text"] {
+  color: white;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Footer */
+footer {
+	background-color: #141414;
+	width: 100vw;
+	height: 50px;
+	bottom: 0;
+  left: 0;
+}
+
+footer p {
+	font-size: 1em;
+  margin-bottom: 0;
+}
+
+a {
+  color: white;
+}
+
+
+a:hover {
+  color: #00ff88
 }
 
 .ticker-box label {
@@ -104,7 +132,6 @@
 }
 
 input[type="text"] {
-  font-family: 'Roboto', sans-serif;
   font-weight: 300;
   position: relative;
   width: 100%;
@@ -112,7 +139,6 @@ input[type="text"] {
   border: 0;
   border-bottom: 1px solid #FFFFFF;
   outline: none;
-  color: white;
   font-size: 4.5em;
 }
 
@@ -150,8 +176,6 @@ input[type="text"] {
 }
 
 h1 {
-  color: white;
-  font-family: 'Roboto', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -161,8 +185,6 @@ h2 {
 }
 
 p {
-  color: white;
-  font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
 

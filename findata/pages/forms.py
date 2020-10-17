@@ -7,5 +7,5 @@ class TickerForm(forms.ModelForm):
         model = Ticker
         fields = ['symbol']
         widgets = {
-            'symbol': forms.TextInput(attrs={'placeholder': 'Ex. AMD', 'required':True})
+            'symbol': forms.TextInput(attrs={'placeholder': 'Ex. TSLA', 'required':True})
         }

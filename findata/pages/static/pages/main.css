@@ -64,9 +64,9 @@
 }
 
 .stock-price {
-  padding-top: 5vh;
+  padding-top: 10vh;
   padding-bottom: 5vh;
-  margin-left: 10vw;
+  margin-left: 0vw;
 }
 
 .stock-price h1 {
@@ -129,6 +129,7 @@ input[type="text"] {
 .header p {
   font-size: 2.25em;
   margin-left: 5vw;
+  width: 75vw;
 }
 
 .mobile-header h1 {
@@ -167,7 +168,9 @@ p {
 
 
 body {
-  display: none;
+  background-color: #090909;
+  margin: 0;
+	padding: 0;
 }
 
 #loading-wrapper {
@@ -178,7 +181,7 @@ body {
 #loading-page {
   position: relative;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   color:white;
   background-color: #090909;
   overflow: hidden;

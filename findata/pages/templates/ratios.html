@@ -10,7 +10,6 @@
 
 {% block stock-name%}
 <h1> {{name}} </h1>
-<h2> {{market}} </h2>
 
 {% endblock %}
 
@@ -20,7 +19,7 @@
 
 {% block stockprice %}
 <h1> {{currency}}{{price}} </h1>
-<p id="priceStatus"> {{priceStatus}} </p>
+<p id="priceStatus"> {{status}} </p>
 {% endblock %}
 
 
@@ -37,7 +36,7 @@
 {% endblock %}
 
 {% block capitalStructure %}
-{% for key, value in capitalStructure.items %}
+{% for key, value in capitalization.items %}
 <p> {{key}}<span> {{value}}</span></p>
 {% endfor %}
 {% endblock %}
