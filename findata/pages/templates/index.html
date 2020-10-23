@@ -8,7 +8,7 @@
     <title> Financial Data </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
     <link href="findata/static/pages/main.css" rel="stylesheet"> <!-- Static files not served through Django as multiple Django sites are hosted on same domain. -->
-    <base href="/">
+    <script type="text/javascript" src="findata/static/pages/main.js"></script>
     {% block loadingscript %}
     {% endblock %}
   </head>
@@ -28,7 +28,7 @@
     <div class="row">
       <div class="col-12 d-lg-block d-md-block d-sm-none d-none">
         <div class="header">
-        <h1> Financial Data </h1>
+        <h1><a href="/financial-ratios"> Financial Data</a> </h1>
         <p> Enter the ticker symbol for any stock, get useful ratios for financial analysis. </p>
         </div>
       </div>
@@ -58,19 +58,19 @@
         <div class="row">
           <div class="col-12">
             <div class="stock-name">
-              {% block stock-name%} {% endblock %}
+              {% block stock-name %} {% endblock %}
             </div>
           </div>
         </div>
 
         <!-- Pricing and time series graph -->
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+          <div class="col-lg-3 col-md-4 col-sm-2 col-xs-2">
             <div class="stock-price">
               {% block stockprice %} {% endblock %}
             </div>
           </div>
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
               <div class="time-series-graph d-none d-sm-block">
                 {% block time-series %} {% endblock %}
               </div>
@@ -78,7 +78,7 @@
           </div>
 
           <!-- Ratios -->
-        <div class="ratios mt-5 mb-5">
+        <div class="ratios mt-5">
           <div class="row">
             <div class="col-md-4 col-sm-12">
               <div class="ratio-item">
@@ -101,8 +101,8 @@
               <div class="col-md-4 col-sm-12">
                 <div class="ratio-item">
                   <div class="content capital-structure">
-                    <h2> Capital Structure</h2>
-                    {% block capitalStructure %} {% endblock %}
+                    <h2> Capitalization</h2>
+                    {% block capitalization %} {% endblock %}
                   </div>
                 </div>
               </div>
@@ -129,9 +129,10 @@
         </div>
       </div>
     </div>
-    <div class="row no-gutters">
+
+    <div class="row">
       <footer class="d-flex justify-content-center align-items-center">
-        <p> <a href="https://haiderzaidi.ca" target='_blank'>Developed by Haider Zaidi</a> </p>
+        <p> Developed by <a href="https://haiderzaidi.ca"> Haider Zaidi </p>
       </footer>
     </div>
 
@@ -141,6 +142,7 @@
         <!-- JS -->
         <script>
         function loadingPage() {
+          // Unhides loading div.
           var div = document.getElementById("loading-wrapper")
           div.style.display = "block";
 

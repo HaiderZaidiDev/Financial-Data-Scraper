@@ -36,6 +36,7 @@ footer {
 	height: 50px;
 	bottom: 0;
   left: 0;
+  position: fixed;
 }
 
 footer p {
