@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 
 
 def scatterPlot(ticker):
-    """ Generates candle stick graph of a stock's price activity.
+    """ Generates a time series graph of a stock's price activity.
 
     Parameters
     ----------
@@ -27,7 +27,7 @@ def scatterPlot(ticker):
 
     Notes
     -----
-    Data is fetched from the alpha vantage API>
+    Data is fetched from the alpha vantage API.
 
     """
     # Fetching time series from alpha vantage, as a Pandas DF.
